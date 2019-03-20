@@ -1,0 +1,36 @@
+header{
+    display: flex;
+    justify-content: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-align: center;
+    color: goldenrod;
+}
+
+
+.bodyDiv {
+    padding: 50px;
+    background: palegoldenrod;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+form {
+    display: flex;
+}
+
+input {
+    width: 200px;
+    text-align: center;
+    height: 30px;
+}
+.boxContainer{
+    background: goldenrod;
+}
+.todoBox {
+    background: rgb(243, 243, 98);
+    padding: 10px;
+    margin: 15px;
+}

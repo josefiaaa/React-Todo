@@ -1,13 +1,26 @@
 import React from 'react';
-import TodoForm from './components/TodoComponents/TodoForm'
+
+import TodoForm from './components/TodoComponents/TodoForm';
+import Todo from './components/TodoComponents/Todo';
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
   // this component is going to take care of state, and any change handlers you need to work with your state
-
+  
   state = {
-    todos: []
+    todos: [
+      {
+        id: 7423847345,
+        text: 'Bake Cupcakes',
+        completed: false,
+      },
+      {
+        id: 39875460503,
+        text: 'Karate class @ 8',
+        completed: false,
+      }
+    ]
   };
 
   addTodo = (todo) => {
@@ -16,15 +29,38 @@ class App extends React.Component {
     })
   };
 
+  toggleComplete = (id) => {
+    this.setState({
+      todos: this.state.todos.map(todo => {
+        if (todo.id === id) {
+          return {
+            ...todo,
+            completed: !todo.completed,
+         }
+        } else {
+          return todo;
+        }
+      })
+    })
+  };
+
   render() {
     return (
       <div className = "todoListContainer">
         <TodoForm onSubmit={this.addTodo} />
 
-        {/* {JSON.stringify(this.state.todos)} */}
+        <div className = 'divCont'>
+          {this.state.todos.map((todo, i) => (
+          <Todo 
+          key={todo.i} 
+          toggleComplete={() => this.toggleComplete(todo.id)}
+          todo={todo}
+          /> 
+          ))}
+        </div>  
 
-        {this.state.todos.map((todo, i) => (<div className="boxContainer" ><li key={i} className="todoBox">{todo.text}</li></div>))}
         
+
       </div>
     );
   }

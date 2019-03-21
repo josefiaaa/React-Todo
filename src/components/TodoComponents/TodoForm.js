@@ -11,7 +11,7 @@ class TodoForm extends React.Component {
   
     handleChange = event => {
         this.setState({
-            [event.target.name]: event.target.value
+            [event.target.name]: event.target.value,
         })
     }
 
@@ -22,7 +22,12 @@ class TodoForm extends React.Component {
             text: this.state.text,
             completed: false,
         });
+
+        this.setState({
+            text: ''
+        })
     }
+
 
     render() {
         return (
